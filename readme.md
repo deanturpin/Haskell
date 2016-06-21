@@ -29,163 +29,476 @@ Prelude> gcd 21 14
 https://wiki.haskell.org/Learn_Haskell_in_10_minutes
 
 ## All builtin functions
-```
-!!                      Prelude.foldl           cos
-$                       Prelude.foldl1          cosh
-$!                      Prelude.foldr           curry
-&&                      Prelude.foldr1          cycle
-*                       Prelude.fromEnum        decodeFloat
-**                      Prelude.fromInteger     div
-+                       Prelude.fromIntegral    divMod
-++                      Prelude.fromRational    drop
--                       Prelude.fst             dropWhile
-.                       Prelude.gcd             either
-/                       Prelude.getChar         elem
-/=                      Prelude.getContents     encodeFloat
-<                       Prelude.getLine         enumFrom
-<=                      Prelude.head            enumFromThen
-=<<                     Prelude.id              enumFromThenTo
-==                      Prelude.init            enumFromTo
->                       Prelude.interact        error
->=                      Prelude.ioError         even
->>                      Prelude.isDenormalized  exp
->>=                     Prelude.isIEEE          exponent
-Bool                    Prelude.isInfinite      fail
-Bounded                 Prelude.isNaN           filter
-Char                    Prelude.isNegativeZero  flip
-Double                  Prelude.iterate         floatDigits
-EQ                      Prelude.last            floatRadix
-Either                  Prelude.lcm             floatRange
-Enum                    Prelude.length          floor
-Eq                      Prelude.lex             fmap
-False                   Prelude.lines           foldl
-FilePath                Prelude.log             foldl1
-Float                   Prelude.logBase         foldr
-Floating                Prelude.lookup          foldr1
-Fractional              Prelude.map             fromEnum
-Functor                 Prelude.mapM            fromInteger
-GT                      Prelude.mapM_           fromIntegral
-IO                      Prelude.max             fromRational
-IOError                 Prelude.maxBound        fst
-Int                     Prelude.maximum         gcd
-Integer                 Prelude.maybe           getChar
-Integral                Prelude.min             getContents
-Just                    Prelude.minBound        getLine
-LT                      Prelude.minimum         head
-Left                    Prelude.mod             id
-Maybe                   Prelude.negate          init
-Monad                   Prelude.not             interact
-Nothing                 Prelude.notElem         ioError
-Num                     Prelude.null            isDenormalized
-Ord                     Prelude.odd             isIEEE
-Ordering                Prelude.or              isInfinite
-Prelude.!!              Prelude.otherwise       isNaN
-Prelude.$               Prelude.pi              isNegativeZero
-Prelude.$!              Prelude.pred            it
-Prelude.&&              Prelude.print           iterate
-Prelude.*               Prelude.product         last
-Prelude.**              Prelude.properFraction  lcm
-Prelude.+               Prelude.putChar         length
-Prelude.++              Prelude.putStr          lex
-Prelude.-               Prelude.putStrLn        lines
-Prelude..               Prelude.quot            log
-Prelude./               Prelude.quotRem         logBase
-Prelude./=              Prelude.read            lookup
-Prelude.<               Prelude.readFile        map
-Prelude.<=              Prelude.readIO          mapM
-Prelude.=<<             Prelude.readList        mapM_
-Prelude.==              Prelude.readLn          max
-Prelude.>               Prelude.readParen       maxBound
-Prelude.>=              Prelude.reads           maximum
-Prelude.>>              Prelude.readsPrec       maybe
-Prelude.>>=             Prelude.realToFrac      min
-Prelude.Bool            Prelude.recip           minBound
-Prelude.Bounded         Prelude.rem             minimum
-Prelude.Char            Prelude.repeat          mod
-Prelude.Double          Prelude.replicate       negate
-Prelude.EQ              Prelude.return          not
-Prelude.Either          Prelude.reverse         notElem
-Prelude.Enum            Prelude.round           null
-Prelude.Eq              Prelude.scaleFloat      odd
-Prelude.False           Prelude.scanl           or
-Prelude.FilePath        Prelude.scanl1          otherwise
-Prelude.Float           Prelude.scanr           pi
-Prelude.Floating        Prelude.scanr1          pred
-Prelude.Fractional      Prelude.seq             print
-Prelude.Functor         Prelude.sequence        product
-Prelude.GT              Prelude.sequence_       properFraction
-Prelude.IO              Prelude.show            putChar
-Prelude.IOError         Prelude.showChar        putStr
-Prelude.Int             Prelude.showList        putStrLn
-Prelude.Integer         Prelude.showParen       quot
-Prelude.Integral        Prelude.showString      quotRem
-Prelude.Just            Prelude.shows           read
-Prelude.LT              Prelude.showsPrec       readFile
-Prelude.Left            Prelude.significand     readIO
-Prelude.Maybe           Prelude.signum          readList
-Prelude.Monad           Prelude.sin             readLn
-Prelude.Nothing         Prelude.sinh            readParen
-Prelude.Num             Prelude.snd             reads
-Prelude.Ord             Prelude.span            readsPrec
-Prelude.Ordering        Prelude.splitAt         realToFrac
-Prelude.Rational        Prelude.sqrt            recip
-Prelude.Read            Prelude.subtract        rem
-Prelude.ReadS           Prelude.succ            repeat
-Prelude.Real            Prelude.sum             replicate
-Prelude.RealFloat       Prelude.tail            result
-Prelude.RealFrac        Prelude.take            return
-Prelude.Right           Prelude.takeWhile       reverse
-Prelude.Show            Prelude.tan             round
-Prelude.ShowS           Prelude.tanh            scaleFloat
-Prelude.String          Prelude.toEnum          scanl
-Prelude.True            Prelude.toInteger       scanl1
-Prelude.^               Prelude.toRational      scanr
-Prelude.^^              Prelude.truncate        scanr1
-Prelude.abs             Prelude.uncurry         seq
-Prelude.acos            Prelude.undefined       sequence
-Prelude.acosh           Prelude.unlines         sequence_
-Prelude.all             Prelude.until           show
-Prelude.and             Prelude.unwords         showChar
-Prelude.any             Prelude.unzip           showList
-Prelude.appendFile      Prelude.unzip3          showParen
-Prelude.asTypeOf        Prelude.userError       showString
-Prelude.asin            Prelude.words           shows
-Prelude.asinh           Prelude.writeFile       showsPrec
-Prelude.atan            Prelude.zip             significand
-Prelude.atan2           Prelude.zip3            signum
-Prelude.atanh           Prelude.zipWith         sin
-Prelude.break           Prelude.zipWith3        sinh
-Prelude.ceiling         Prelude.||              snd
-Prelude.compare         Rational                span
-Prelude.concat          Read                    splitAt
-Prelude.concatMap       ReadS                   sqrt
-Prelude.const           Real                    subtract
-Prelude.cos             RealFloat               succ
-Prelude.cosh            RealFrac                sum
-Prelude.curry           Right                   tail
-Prelude.cycle           Show                    take
-Prelude.decodeFloat     ShowS                   takeWhile
-Prelude.div             String                  tan
-Prelude.divMod          True                    tanh
-Prelude.drop            ^                       toEnum
-Prelude.dropWhile       ^^                      toInteger
-Prelude.either          abs                     toRational
-Prelude.elem            acos                    truncate
-Prelude.encodeFloat     acosh                   uncurry
-Prelude.enumFrom        all                     undefined
-Prelude.enumFromThen    and                     unique
-Prelude.enumFromThenTo  any                     unlines
-Prelude.enumFromTo      appendFile              until
-Prelude.error           asTypeOf                unwords
-Prelude.even            asin                    unzip
-Prelude.exp             asinh                   unzip3
-Prelude.exponent        atan                    userError
-Prelude.fail            atan2                   words
-Prelude.filter          atanh                   writeFile
-Prelude.flip            break                   zip
-Prelude.floatDigits     ceiling                 zip3
-Prelude.floatRadix      compare                 zipWith
-Prelude.floatRange      concat                  zipWith3
-Prelude.floor           concatMap               ||
-Prelude.fmap            const
-```
+- !!                      
+- $                       
+- $!                      
+- &&                      
+- *                       
+- **                      
+- +                       
+- ++                      
+- -                       
+- .                       
+- /                       
+- /=                      
+- <                       
+- <=                      
+- =<<                    
+- ==                      
+- >                       
+- >=                      
+- >>                      
+- >>=                     
+- Bool                    
+- Bounded                 
+- Char                    
+- Double                  
+- EQ                      
+- Either                  
+- Enum                    
+- Eq                      
+- False                   
+- FilePath                
+- Float                   
+- Floating                
+- Fractional              
+- Functor                 
+- GT                      
+- IO                      
+- IOError                 
+- Int                     
+- Integer                 
+- Integral                
+- Just                    
+- LT                      
+- Left                    
+- Maybe                   
+- Monad                   
+- Nothing                 
+- Num                   
+- Ord                     
+- Ordering                
+- Prelude.!!              
+- Prelude.$            
+- Prelude.$!              
+- Prelude.&&              
+- Prelude.*               
+- Prelude.**              
+- Prelude.+               
+- Prelude.++              
+- Prelude.-               
+- Prelude..               
+- Prelude./               
+- Prelude./=              
+- Prelude.<               
+- Prelude.<=              
+- Prelude.=<<             
+- Prelude.==              
+- Prelude.>               
+- Prelude.>=              
+- Prelude.>>              
+- Prelude.>>=             
+- Prelude.Bool            
+- Prelude.Bounded         
+- Prelude.Char            
+- Prelude.Double          
+- Prelude.EQ              
+- Prelude.Either          
+- Prelude.Enum            
+- Prelude.Eq              
+- Prelude.False           
+- Prelude.FilePath        
+- Prelude.Float           
+- Prelude.Floating        
+- Prelude.Fractional      
+- Prelude.Functor         
+- Prelude.GT          
+- Prelude.IO              
+- Prelude.IOError         
+- Prelude.Int             
+- Prelude.Integer         
+- Prelude.Integral        
+- Prelude.Just            
+- Prelude.LT              
+- Prelude.Left            
+- Prelude.Maybe           
+- Prelude.Monad           
+- Prelude.Nothing         
+- Prelude.Num             
+- Prelude.Ord             
+- Prelude.Ordering        
+- Prelude.Rational        
+- Prelude.Read            
+- Prelude.ReadS           
+- Prelude.Real            
+- Prelude.RealFloat       
+- Prelude.RealFrac        
+- Prelude.Right           
+- Prelude.Show            
+- Prelude.ShowS           
+- Prelude.String          
+- Prelude.True            
+- Prelude.^               
+- Prelude.^^              
+- Prelude.abs             
+- Prelude.acos            
+- Prelude.acosh           
+- Prelude.all             
+- Prelude.and             
+- Prelude.any             
+- Prelude.appendFile      
+- Prelude.asTypeOf        
+- Prelude.asin            
+- Prelude.asinh           
+- Prelude.atan            
+- Prelude.atan2           
+- Prelude.atanh           
+- Prelude.break           
+- Prelude.ceiling         
+- Prelude.compare         
+- Prelude.concat          
+- Prelude.concatMap       
+- Prelude.const           
+- Prelude.cos             
+- Prelude.cosh            
+- Prelude.curry           
+- Prelude.cycle           
+- Prelude.decodeFloat     
+- Prelude.div             
+- Prelude.divMod          
+- Prelude.drop            
+- Prelude.dropWhile       
+- Prelude.either          
+- Prelude.elem            
+- Prelude.encodeFloat     
+- Prelude.enumFrom        
+- Prelude.enumFromThen    
+- Prelude.enumFromThenTo  
+- Prelude.enumFromTo      
+- Prelude.error           
+- Prelude.even            
+- Prelude.exp             
+- Prelude.exponent        
+- Prelude.fail            
+- Prelude.filter          
+- Prelude.flip            
+- Prelude.floatDigits     
+- Prelude.floatRadix      
+- Prelude.floatRange      
+- Prelude.floor           
+- Prelude.fmap
+- Prelude.foldl
+- Prelude.foldl1
+- Prelude.foldr
+- Prelude.foldr1
+- Prelude.fromEnum
+- Prelude.fromInteger
+- Prelude.fromIntegral
+- Prelude.fromRational
+- Prelude.fst
+- Prelude.gcd
+- Prelude.getChar
+- Prelude.getContents
+- Prelude.getLine
+- Prelude.head
+- Prelude.id
+- Prelude.init
+- Prelude.interact
+- Prelude.ioError
+- Prelude.isDenormalized
+- Prelude.isIEEE
+- Prelude.isInfinite
+- Prelude.isNaN
+- Prelude.isNegativeZero
+- Prelude.iterate
+- Prelude.last
+- Prelude.lcm
+- Prelude.length
+- Prelude.lex
+- Prelude.lines
+- Prelude.log
+- Prelude.logBase
+- Prelude.lookup
+- Prelude.map
+- Prelude.mapM
+- Prelude.mapM_
+- Prelude.max
+- Prelude.maxBound
+- Prelude.maximum
+- Prelude.maybe
+- Prelude.min
+- Prelude.minBound
+- Prelude.minimum
+- Prelude.mod
+- Prelude.negate
+- Prelude.not
+- Prelude.notElem
+- Prelude.null
+- Prelude.odd
+- Prelude.or
+- Prelude.otherwise
+- Prelude.pi
+- Prelude.pred
+- Prelude.print
+- Prelude.product
+- Prelude.properFraction
+- Prelude.putChar
+- Prelude.putStr
+- Prelude.putStrLn
+- Prelude.quot
+- Prelude.quotRem
+- Prelude.read
+- Prelude.readFile
+- Prelude.readIO
+- Prelude.readList
+- Prelude.readLn
+- Prelude.readParen
+- Prelude.reads
+- Prelude.readsPrec
+- Prelude.realToFrac
+- Prelude.recip
+- Prelude.rem
+- Prelude.repeat
+- Prelude.replicate
+- Prelude.return
+- Prelude.reverse
+- Prelude.round
+- Prelude.scaleFloat
+- Prelude.scanl
+- Prelude.scanl1
+- Prelude.scanr
+- Prelude.scanr1
+- Prelude.seq
+- Prelude.sequence
+- Prelude.sequence_
+- Prelude.show
+- Prelude.showChar
+- Prelude.showList
+- Prelude.showParen
+- Prelude.showString
+- Prelude.shows
+- Prelude.showsPrec
+- Prelude.significand
+- Prelude.signum
+- Prelude.sin
+- Prelude.sinh
+- Prelude.snd
+- Prelude.span
+- Prelude.splitAt
+- Prelude.sqrt
+- Prelude.subtract
+- Prelude.succ
+- Prelude.sum
+- Prelude.tail
+- Prelude.take
+- Prelude.takeWhile
+- Prelude.tan
+- Prelude.tanh
+- Prelude.toEnum
+- Prelude.toInteger
+- Prelude.toRational
+- Prelude.truncate
+- Prelude.uncurry
+- Prelude.undefined
+- Prelude.unlines
+- Prelude.until
+- Prelude.unwords
+- Prelude.unzip
+- Prelude.unzip3
+- Prelude.userError
+- Prelude.words
+- Prelude.writeFile
+- Prelude.zip
+- Prelude.zip3
+- Prelude.zipWith
+- Prelude.zipWith3
+- Prelude.||
+- Rational
+- Read
+- ReadS
+- Real
+- RealFloat
+- RealFrac
+- Right
+- Show
+- ShowS
+- String
+- True
+- ^
+- ^^
+- abs
+- acos
+- acosh
+- all
+- and
+- any
+- appendFile
+- asTypeOf
+- asin
+- asinh
+- atan
+- atan2
+- atanh
+- break
+- ceiling
+- compare
+- concat
+- concatMap
+- const
+- cos
+- cosh
+- curry
+- cycle
+- decodeFloat
+- div
+- divMod
+- drop
+- dropWhile
+- either
+- elem
+- encodeFloat
+- enumFrom
+- enumFromThen
+- enumFromThenTo
+- enumFromTo
+- error
+- even
+- exp
+- exponent
+- fail
+- filter
+- flip
+- floatDigits
+- floatRadix
+- floatRange
+- floor
+- fmap
+- foldl
+- foldl1
+- foldr
+- foldr1
+- fromEnum
+- fromInteger
+- fromIntegral
+- fromRational
+- fst
+- gcd
+- getChar
+- getContents
+- getLine
+- head
+- id
+- init
+- interact
+- ioError
+- isDenormalized
+- isIEEE
+- isInfinite
+- isNaN
+- isNegativeZero
+- it
+- iterate
+- last
+- lcm
+- length
+- lex
+- lines
+- log
+- logBase
+- lookup
+- map
+- mapM
+- mapM_
+- max
+- maxBound
+- maximum
+- maybe
+- min
+- minBound
+- minimum
+- mod
+- negate
+- not
+- notElem
+- null
+- odd
+- or
+- otherwise
+- pi
+- pred
+- print
+- product
+- properFraction
+- putChar
+- putStr
+- putStrLn
+- quot
+- quotRem
+- read
+- readFile
+- readIO
+- readList
+- readLn
+- readParen
+- reads
+- readsPrec
+- realToFrac
+- recip
+- rem
+- repeat
+- replicate
+- result
+- return
+- reverse
+- round
+- scaleFloat
+- scanl
+- scanl1
+- scanr
+- scanr1
+- seq
+- sequence
+- sequence_
+- show
+- showChar
+- showList
+- showParen
+- showString
+- shows
+- showsPrec
+- significand
+- signum
+- sin
+- sinh
+- snd
+- span
+- splitAt
+- sqrt
+- subtract
+- succ
+- sum
+- tail
+- take
+- takeWhile
+- tan
+- tanh
+- toEnum
+- toInteger
+- toRational
+- truncate
+- uncurry
+- undefined
+- unique
+- unlines
+- until
+- unwords
+- unzip
+- unzip3
+- userError
+- words
+- writeFile
+- zip
+- zip3
+- zipWith
+- zipWith3
+- ||
