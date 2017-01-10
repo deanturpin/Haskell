@@ -11,6 +11,15 @@ doubleSmallNumber x =
   then x
   else x*2
 
+doubleSmallNumber' x =
+  (if x > 100
+  then x
+  else x*2) + 1
+
+-- Apostrphe is a valid character in a function name
+conanO'Brian = "Hello, my name is Conan"
+
+-- 
 main = do
   print "double me"
   print $ doubleMe 5
@@ -21,3 +30,6 @@ main = do
   print $ doubleSmallNumber 4
   print "double large"
   print $ doubleSmallNumber 400
+  print $ doubleSmallNumber' 400
+  print "function naming and expressions"
+  print $ conanO'Brian
