@@ -46,3 +46,11 @@ main = do
   print $ maximum animals
   print $ minimum animals
 
+  -- Sum and product
+  print $ sum badger''
+  print $ product badger''
+
+  -- Contains
+  print $ elem 'b' badger
+  print $ 'b' `elem` badger
+
