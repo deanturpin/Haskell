@@ -13,3 +13,10 @@ liar? So in purely functional languages, a function has no side-effects.
 - Haskell is lazy
 - infinite data structures
 - statically typed
+
+See my run of [Learn You A Haskell](learn-you-a-haskell).
+
+# Functional resources
+- http://learnyouahaskell.com/chapters
+- https://www.youtube.com/watch?v=b0EF0VTs9Dc - Monads and Gonads
+- https://www.youtube.com/watch?v=iSmkqocn0oQ Haskell is useless
