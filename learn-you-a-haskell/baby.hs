@@ -17,6 +17,9 @@ doubleSmallNumber' x =
   else x*2) + 1
 
 -- Apostrphe is a valid character in a function name
+-- When a function takes no params we usually say it's a definition (or a name)
+-- Because we can't change def name or the string we can use them
+-- interchangeably
 conanO'Brian = "Hello, my name is Conan"
 
 -- 
