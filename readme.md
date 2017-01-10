@@ -17,6 +17,6 @@ liar? So in purely functional languages, a function has no side-effects.
 See my run of [Learn You A Haskell](learn-you-a-haskell).
 
 # Functional resources
-- http://learnyouahaskell.com/chapters
-- https://www.youtube.com/watch?v=b0EF0VTs9Dc - Monads and Gonads
-- https://www.youtube.com/watch?v=iSmkqocn0oQ Haskell is useless
+- [Learn You A Haskell](http://learnyouahaskell.com/chapters)
+- [Monads and Gonads](https://www.youtube.com/watch?v=b0EF0VTs9Dc)
+- [Haskell is useless](https://www.youtube.com/watch?v=iSmkqocn0oQ)
