@@ -1,16 +1,26 @@
 #!/usr/bin/runhaskell
 
--- length
-length' [] = 0
-length' (x:xs) = 1 + length' xs
+-- use let
+cylinder r h =
+  let
+    sideArea = 2 * pi * r * h
+    topArea = pi * r^2
+  in
+    sideArea + 2 * topArea
 
--- sum
-sum' [] = 0
-sum' (x:xs) = x + sum' xs
+-- using where
+cylinder' r h =
+  sideArea + 2 * topArea
+  where
+    sideArea = 2 * pi * r * h
+    topArea = pi * r^2
 
 main = do
-  putStrLn "--- length ---\n"
-  print $ length' []
-  print $ length' [1,2,3]
-  print $ length' "ham"
-  print $ sum [1..10]
+  putStrLn "--- let bindings ---\n"
+  print $ cylinder 4 5
+  print $ cylinder' 4 5
+
+  -- introduce functions in a local scope
+  print [let square x = x*x in (square 1, square 2, square 3)]
+
+  print [let foo = "bar"; blah = "rah" in foo ++ blah]
