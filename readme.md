@@ -17,7 +17,7 @@ liar? So in purely functional languages, a function has no side-effects.
 See my run of [Learn You A Haskell](learn-you-a-haskell).
 
 # Functional resources
-- [Learn You A Haskell](http://learnyouahaskell.com/chapters)
-- [Monads and Gonads](https://www.youtube.com/watch?v=b0EF0VTs9Dc)
-- [Haskell is useless](https://www.youtube.com/watch?v=iSmkqocn0oQ)
-- [Tail recursion optimisation](https://www.quora.com/What-is-tail-recursion-Why-is-it-so-bad)
+- [Learn You A Haskell](http://learnyouahaskell.com/chapters) (book)
+- [Monads and Gonads](https://www.youtube.com/watch?v=b0EF0VTs9Dc) (video) 
+- [Haskell is useless](https://www.youtube.com/watch?v=iSmkqocn0oQ) (video)
+- [Tail recursion optimisation](https://www.quora.com/What-is-tail-recursion-Why-is-it-so-bad) (article)
