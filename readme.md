@@ -21,3 +21,17 @@ See my run of [Learn You A Haskell](learn-you-a-haskell).
 - [Monads and Gonads](https://www.youtube.com/watch?v=b0EF0VTs9Dc)
 - [Haskell is useless](https://www.youtube.com/watch?v=iSmkqocn0oQ)
 - [Tail recursion optimisation](https://www.quora.com/What-is-tail-recursion-Why-is-it-so-bad)
+
+# Key features
+```haskell
+bmiTell'' w h
+  | bmi < low = "one"
+  | bmi < mid = "two"
+  | bmi < high = "three"
+  | otherwise = "blah"
+  where
+      bmi = w / h^2
+      (low,mid,high) = (10,20,30)
+
+max' a b | a > b = a | otherwise = b
+```
