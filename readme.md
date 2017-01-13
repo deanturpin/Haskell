@@ -87,4 +87,35 @@ reverse' (x:xs) = reverse' xs ++ [x]
 zip' _ [] = []
 zip' [] _ = []
 zip' (x:xs) (y:ys) = [(x,y)] ++ zip' xs ys
+
+-- quicksort with let
+quicksort [] = []
+quicksort (x:xs) =
+  let smaller = quicksort [a | a <- xs, a <= x]
+      larger = quicksort [a | a <- xs, a > x]
+  in smaller ++ [x] ++ larger
+
+-- quicksort with where
+quicksort' [] = []
+quicksort' (x:xs) =
+  smaller ++ [x] ++ larger
+  where
+      smaller = quicksort' [a | a <- xs, a <= x]
+      larger = quicksort' [a | a <- xs, a > x]
+
+-- quicksort inline
+quicksort'' [] = []
+quicksort'' (x:xs) =
+  quicksort'' [a | a <- xs, a <= x]
+    ++ [x]
+      ++ quicksort'' [a | a <- xs, a > x]
 ```
+
+<blockquote>
+So when trying to think of a recursive way to solve a problem, try to think of
+when a recursive solution doesn't apply and see if you can use that as an edge
+case, think about identities and think about whether you'll break apart the
+parameters of the function (for instance, lists are usually broken into a head
+and a tail via pattern matching) and on which part you'll use the recursive
+call.
+</blockquote>
