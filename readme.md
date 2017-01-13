@@ -118,3 +118,32 @@ quicksort'' (x:xs) =
 > Haskell functions can take functions as parameters and return functions as
 > return values. A function that does either of those is called a higher order
 > function.
+
+> Putting a space between two things is simply function application.
+
+> Simply speaking, if we call a function with too few parameters, we get back a
+> partially applied function, meaning a function that takes as many parameters as
+> we left out. Using partial application (calling functions with too few
+> parameters, if you will) is a neat way to create functions on the fly so we can
+> pass them to another function or to seed them with some data.
+
+```haskell
+print $ zipwith' (+) [1..10] [10..20]
+
+-- flip
+flip' f = g
+  where g x y = f y x
+```
+
+# map
+> map takes a function and a list and applies that function to every element in
+> the list, producing a new list. 
+
+```haskell
+-- map
+map (^2) [1..10]
+
+-- filter
+filter (<1.5) (take 10 [1.1, 1.2..])
+filter even [1..20]
+```
