@@ -58,4 +58,28 @@ describeList xs = "The list is " ++ what xs
 			what [] = "empty."  
 			what [x] = "a singleton list."  
 			what xs = "a longer list." 
+
+-- Maximum
+
+maximum' [] = error "empty list"
+maximum' [x] = x
+maximum' (x:xs)
+  | x > maxTail = x
+  | otherwise = maxTail
+  where maxTail = maximum' xs
+
+maximum'' [] = error "empty list"
+maximum'' [x] = x
+maximum'' (x:xs) = max x (maximum'' xs)
+
+-- Replicate
+
+replicate' n x
+  | n <= 0 = []
+  | otherwise = x:replicate' (n-1) x
+
+-- reverse
+
+reverse' [] = []
+reverse' (x:xs) = reverse' xs ++ [x]
 ```
