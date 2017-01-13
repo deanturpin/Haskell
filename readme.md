@@ -47,11 +47,8 @@ cylinder' r h =
 
 [let square x = x * x in (square 5, square 3, square 2)]  
 
- let boot x y z = x * y + z in boot 3 4 2 
+let boot x y z = x * y + z in boot 3 4 2 
 
-describeList xs = "The list is " ++ case xs of [] -> "empty."  
-                                               [x] -> "a singleton list."   
-											   xs -> "a longer list."  
 
 describeList xs = "The list is " ++ what xs  
     where
@@ -111,11 +108,13 @@ quicksort'' (x:xs) =
       ++ quicksort'' [a | a <- xs, a > x]
 ```
 
-<blockquote>
-So when trying to think of a recursive way to solve a problem, try to think of
-when a recursive solution doesn't apply and see if you can use that as an edge
-case, think about identities and think about whether you'll break apart the
-parameters of the function (for instance, lists are usually broken into a head
-and a tail via pattern matching) and on which part you'll use the recursive
-call.
-</blockquote>
+> So when trying to think of a recursive way to solve a problem, try to think of
+> when a recursive solution doesn't apply and see if you can use that as an edge
+> case, think about identities and think about whether you'll break apart the
+> parameters of the function (for instance, lists are usually broken into a head
+> and a tail via pattern matching) and on which part you'll use the recursive
+> call.
+
+> Haskell functions can take functions as parameters and return functions as
+> return values. A function that does either of those is called a higher order
+> function.
