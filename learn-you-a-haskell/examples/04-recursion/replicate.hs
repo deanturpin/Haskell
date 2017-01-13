@@ -19,6 +19,12 @@ zip' _ [] = []
 zip' [] _ = []
 zip' (x:xs) (y:ys) = [(x,y)] ++ zip' xs ys
 
+-- zip and pad with zero
+zip'' [] [] = []
+zip'' (x:xs) [] = (x,0) : zip'' xs []
+zip'' [] (x:xs) = (x,0) : zip'' [] xs
+zip'' (x:xs) (y:ys) = (x,y) : zip'' xs ys
+
 main = do
   putStrLn "--- recursion - replicate ---"
   print $ replicate' 4 5
@@ -27,3 +33,4 @@ main = do
   print $ take' 1 [1]
   print $ reverse' [1..10]
   print $ zip' (reverse [1..10]) [4..6]
+  print $ zip'' (reverse [1..10]) [4..6]

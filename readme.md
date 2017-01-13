@@ -82,4 +82,9 @@ replicate' n x
 
 reverse' [] = []
 reverse' (x:xs) = reverse' xs ++ [x]
+
+-- zip
+zip' _ [] = []
+zip' [] _ = []
+zip' (x:xs) (y:ys) = [(x,y)] ++ zip' xs ys
 ```
