@@ -146,4 +146,7 @@ map (^2) [1..10]
 -- filter
 filter (<1.5) (take 10 [1.1, 1.2..])
 filter even [1..20]
+
+-- takeWhile
+takeWhile (>0) (filter odd (map (+ 2) [10,9..]))
 ```
