@@ -150,3 +150,58 @@ filter even [1..20]
 -- takeWhile
 takeWhile (>0) (filter odd (map (+ 2) [10,9..]))
 ```
+
+```haskell
+-- list of functions
+listoffunctions = map (*) [0..]
+```
+
+# Lambdas
+> Lambdas are basically anonymous functions that are used because we need some
+> functions only once. 
+
+```haskell
+-- So use lambdas in this way when you want to make it explicit that your
+function is mainly meant to be partially applied and passed on to a function as
+a parameter.
+
+addThree = \x -> \y -> \z -> x + y + z  
+flip' f = \x y -> f y x  
+```
+
+# Folds
+```haskell
+sum' list = (foldl (\acc x -> acc + x) 0 list)
+
+-- Generally, if you have a function like foo a = bar b a, you can rewrite it as
+-- foo = bar b, because of currying.
+
+sum'' list = (foldr (\acc x -> acc / x) 1 list)
+sum''' = foldl (+) 0
+```
+
+> If you reverse a list, you can do a right fold on it just like you would have
+> done a left fold and vice versa. Sometimes you don't even have to do that. The
+> sum function can be implemented pretty much the same with a left and right fold.
+> One big difference is that right folds work on infinite lists, whereas left ones
+> don't! To put it plainly, if you take an infinite list at some point and you
+> fold it up from the right, you'll eventually reach the beginning of the list.
+> However, if you take an infinite list at a point and you try to fold it up from
+> the left, you'll never reach an end!
+
+> Folds can be used to implement any function where you traverse a list once,
+> element by element, and then return something based on that. Whenever you want
+> to traverse a list to return something, chances are you want a fold. That's why
+> folds are, along with maps and filters, one of the most useful types of
+> functions in functional programming.
+
+> The foldl1 and foldr1 functions work much like foldl and foldr, only you don't
+> need to provide them with an explicit starting value. They assume the first (or
+> last) element of the list to be the starting value and then start the fold with
+> the element next to it. With that in mind, the sum function can be implemented
+> like so: sum = foldl1 (+). Because they depend on the lists they fold up having
+> at least one element, they cause runtime errors if called with empty lists.
+> foldl and foldr, on the other hand, work fine with empty lists. When making a
+> fold, think about how it acts on an empty list. If the function doesn't make
+> sense when given an empty list, you can probably use a foldl1 or foldr1 to
+> implement it.
