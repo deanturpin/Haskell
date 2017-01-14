@@ -205,3 +205,62 @@ sum''' = foldl (+) 0
 > fold, think about how it acts on an empty list. If the function doesn't make
 > sense when given an empty list, you can probably use a foldl1 or foldr1 to
 > implement it.
+
+```haskell
+-- implementing standard library functions with folds
+
+-- maximum
+maximum' = foldr1 (\x acc -> if x > acc then x else acc)
+
+-- reverse
+reverse' = foldl (\acc x -> x:acc) []
+
+-- product
+-- product' = foldr1 (*)
+product' :: (Num a) => [a] -> a  
+product' = foldr1 (*) 
+
+-- filter
+filter' f = foldr (\x y -> if f x then x:y else y) []
+
+-- head
+head' = foldr1 (\x _ -> x)
+
+-- last
+last' = foldl1 (\_ x -> x)
+```
+
+## scanr and scanl
+```haskell
+scanl (+) 0 [1..10]
+scanr (+) 0 [1..10]
+
+-- reverse using flip
+scanl (flip (:)) [] [3,2,1]
+```
+
+## How many elements does it take for the sum of the roots of all natural numbers to exceed 1000?
+```haskell
+length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1 
+```
+
+# Function application
+```haskell
+> map ($ 3) [(4+), (10*), (^2), sqrt]
+[7.0,30.0,9.0,1.7320508075688772]
+
+-- function composition
+map (\xs -> negate $ sum $ tail xs) [[1..5],[6..9],[10..20]]
+map (negate . sum . tail) [[1..5],[6..9],[10..20]]
+
+print . sum . map (*2) $ [1..10]
+```
+
+# Point free style
+```haskell
+fn x = ceiling (negate (tan (cos (max 50 x))))
+fn' = ceiling . negate . tan . cos . max 50
+
+print (sum (takeWhile (<10000) (map (^2) (filter odd [1..]))))
+print . sum . takeWhile (<10000) . map (^2) . filter odd $ [1..]
+```

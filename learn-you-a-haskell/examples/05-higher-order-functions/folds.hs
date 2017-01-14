@@ -25,11 +25,15 @@ product' :: (Num a) => [a] -> a
 product' = foldr1 (*) 
 
 -- filter
-filter' f = foldr (\x acc -> if f x then x:acc else acc) []
+filter' f = foldr (\x y -> if f x then x:y else y) []
 
 -- head
+head' = foldr1 (\x _ -> x)
 
 -- last
+last' = foldl1 (\_ x -> x)
+
+-- reverse'' = foldl (flip (:)) []
 
 main = do
   putStrLn "--- folds ---"
@@ -45,6 +49,15 @@ main = do
   print (reverse' [1..20])
   print (product' [1..4])
   print (filter' (>10) [5..25])
-  print ()
-  print ()
-  print ()
+  print (head' [1..10])
+  print (last' [1..10])
+
+  -- scanr scanl
+  print (scanl (+) 0 [1..10])
+  print (scanr (+) 0 [1..10])
+
+  -- reverse using flip
+  print (scanl (flip (:)) [] [3,2,1])
+
+  print (sum (take 10 (map sqrt [1..])))
+  print (length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1)
