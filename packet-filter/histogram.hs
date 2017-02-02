@@ -2,25 +2,33 @@
 
 import Data.List
 
-packets = [ \
-41,82,4,88,91,0,35,48,29,33,70,53,40,72,56,34,28,19,75,59,75,86,65,9,59,59,43,28,87,85,6,63,90,55,30,49,65,97,26,91,71,44,45,43,22,89,88,77,12,4,86,95,89,80,9,5,83,36,38,22,51,43,92,13,49,23,76,10,43,62,60,45,7,95,93,82,77,72,78,54,29,71,49,30,39,17,90,14,62,73,5,74,96,70,89,82,20,2,40,38,45,92,63,2,72,26,32,91,82,6,21,84,32,94,49,73,95,79,37,0,51,61,94,84,90,66,8,47,8,81,95,48,69,38,39,45,69,83,18,3,12,68,69,19,43,95,77,77,26,8,74,79,85,94,47,33,22,29,57,19,1,76,78,24,1,36,8,80,87,97,49,59,34,20,71,87,57,40,1,51,70,42,67,72,37,36,66,20,63,55,94,68,2,38,34,50,10,56,67,20,7,50,0,72,89,31,40,7,97,46,9,27,72,82,78,31,95,86,75,59,36,68,91,36,87,73,25,52,63,82,23,34,32,5,72,75,24,3,14,81,56,18,70,53,94,96,37,52,22,72,35,49,67,6,14,19,1,68,86,11,43,96,17,54,72,84,11,47,75,14,47,38,85,54,85,40,67,73,61,7,59,26,66,87,76,15,3,47,85,92,21,98,97,7,86,85,12,86,40,79]
+packets = [2,1,1,1,2,3,1,2,2,2,0,0,2,0,3,1,1,2,0,2,0,0,0,0,2,1,1,1,1,3,2,1,0,0,2,2,2,2,3,1,0,1,1,2,1,2,1,0,0,1]
 
--- A histogram is a sorted and grouped list
+packets' = [[1,2,19,21,18],[2,6,4,15,7],[3,17,25,5,7],[4,31,27,18,19],[5,26,3,4,14],[6,13,1,13,1],[7,12,12,29,19],[8,21,8,16,17],[9,9,5,20,19],[10,7,20,12,31],[11,30,5,28,3],[12,4,23,25,5],[13,9,14,28,24],[14,9,28,27,23],[15,14,0,29,21],[16,22,13,13,24],[17,11,13,23,1],[18,18,21,19,2],[19,19,26,2,2],[20,17,28,7,9]]
+
+-- Histrogram of simple list
 histogram xs = [ (head x, length x) | x <- list ]
   where list = group . sort $ xs
 
+-- Histogram of list of lists
+histogram' xs = [ (head x, length x) | x <- list ]
+  where
+    list = group (sort extract)
+    extract = [ y!!2 | y <- xs]
+
+-- Convert list of pairs to a printable string
 histogramToString xs
     | xs == [] = ""
-    | otherwise = bar ++ "| " ++ show count ++ "\n" ++ (histogramToString (tail xs))
+    | otherwise = bar ++ "\n" ++ remainder
   where
-    count = (snd (head xs)) 
-    bar = replicate count '-'
+    bar = replicate binSize '-' ++ "| " ++ show binSize
+    binSize = snd (head xs)
+    remainder =  (histogramToString (tail xs))
 
 main = do
-  putStrLn ("Packets " ++ show (length packets))
 
-  -- Create a histogram
-  print (histogram packets)
-
-  -- Convert it to a string
+  putStrLn "Histogram of simple list"
   putStrLn (histogramToString (histogram packets))
+
+  putStrLn "Histogram of list of lists"
+  putStrLn (histogramToString (histogram' packets'))
