@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo -n "["
+for p in $(seq 20); do
+
+	echo -n "[$p"
+
+	for i in $(seq 4); do
+		echo -n ",$(( RANDOM / 1000 ))"
+	done
+
+	echo -n "],"
+done
+echo -n "]"
