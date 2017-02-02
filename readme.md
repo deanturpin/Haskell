@@ -21,6 +21,8 @@ See my run of [Learn You A Haskell](learn-you-a-haskell).
 - [Monads and Gonads](https://www.youtube.com/watch?v=b0EF0VTs9Dc) (video) 
 - [Haskell is useless](https://www.youtube.com/watch?v=iSmkqocn0oQ) (video)
 - [Tail recursion optimisation](https://www.quora.com/What-is-tail-recursion-Why-is-it-so-bad) (article)
+- [Wikibooks](https://en.wikibooks.org/wiki/Haskell)
+- [QuickCheck](https://wiki.haskell.org/Introduction_to_QuickCheck1)
 
 # Key features
 ```haskell
