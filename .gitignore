@@ -1,1 +1,3 @@
 HaskellBook.pdf
+*.hi
+*.o
